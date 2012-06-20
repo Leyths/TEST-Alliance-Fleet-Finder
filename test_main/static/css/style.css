@@ -1,0 +1,133 @@
+body{background-color:#77A2B8; color:#000000; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
+.alert_message{ padding:5px; padding-left:7px; padding-right:7px; position:absolute; top:-23px; text-align:center;}
+#alert_cont{margin-left:auto; margin-right:auto; width:300px; position:relative; text-align:center;}
+#alert_message_working{left:110px;}
+.container{text-align:left}
+
+.header {padding-top:40px; padding-bottom:30px; font-size:40pt; margin-left:auto; margin-right:auto; text-align:center; }
+.pilot_name{font-size:16px; font-weight:bold; max-width:420px; display: inline-block;}
+.pilot_name .name {margin-right:10px;}
+.pilot_name .label {position:relative; bottom:2px; display: inline-block;}
+.pilot_name .labels { white-space: nowrap; margin-top:3px; display:inline-block;}
+.connection_status{font-size:13pt; float:right; position:absolute; top:30%; bottom:0px; right:0px; text-align:center; padding-top:0px; }
+.connection_status .btn{margin-top:-3px; margin-right:5px;}
+.connection_status_text{padding-top:2px; padding-right:5px;  height:100%; float:left; }
+#connection_arrow{}
+
+#pilot_box{background-color:#E6E6E6; 
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+border:1px solid #DDD;}
+
+#body, #fleet_creation{background-color:#FFFFFF; padding:10px; 
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+border:1px solid #DDD; margin-bottom:30px;}
+
+#fleets{ padding-bottom:15px; margin-left:10px; margin-right:10px; font-size:13pt;}
+#fleets_title{font-weight:bold; font-size:16px; padding-bottom:3px; float:left; }
+.create_fleet{float:right; margin-right:5px;}
+
+#fleet_t{margin-bottom:40px; padding-top:25px; margin-left:10px; margin-right:10px;}
+
+.fleet{margin-left:10px;margin-top:20px; 
+-webkit-border-radius: 3px 3px 0px 0px;
+border-radius: 3px 3px 0px 0px;
+border:1px solid #DDD;
+position:relative; padding:6px;padding-left:10px;
+}
+
+.fleet_block_one  {margin-right:100px;}
+.fleet_block_two  {margin-right:100px; margin-top:5px; font-weight:lighter; font-style: italic; padding-left:10px; padding-right:10px; padding-bottom:0px;}
+.fleet_block_three{float:right; position:absolute; right:0px; top:0px; bottom:0px;}
+
+.fleet_name{font-weight:bold; font-size:17px;}
+.user_name{}
+.fleet .fleet_description{font-size:14px; }
+.fleet .fleet_leaving{margin-left:0px;color:#807E7F; font-size:13px; display: block;}
+.fleet .commanded_by{font-size:14px;}
+.fleet .label{font-style:normal; }
+.fleet .labels{padding-left:8px; margin-top:4px; display:inline-block;}
+
+.fleet_members{margin-left:10px;
+-webkit-border-radius: 0px 0px 3px 3px;
+border-radius: 0px 0px 3px 3px;
+border:1px solid #DDD;
+border-top:none;
+position:relative; padding:6px;padding-left:10px; margin-right:82px;}
+.fleet_member {padding-top:3px; margin-bottom:3px; border-top:1px solid #DDD;}
+
+#pilots{padding-top:15px; padding-bottom:15px; font-size:13pt; margin-left:10px; margin-right:10px;}
+#pilots_title{font-weight:bold; font-size:16px; padding-bottom:11px;}
+.pilot{padding-left:5px; -webkit-border-radius: 3px 3px 3px 3px;
+border-radius: 3px 3px 3px 3px;
+border:1px solid #DDD;
+padding:5px;
+margin-left:10px; margin-top:2px;}
+
+.pilot .label,.fleet_member .label {margin-bottom:2px; position:relative; bottom:2px;}
+.pilot .user_name{margin-right:5px; min-width:100px; display:inline-block;}
+#pilot_info{margin-bottom:10px; padding-top:10px; padding-left:10px; padding-right:10px; position:relative;}
+
+.btn i {margin-top:2px; margin-right:2px;}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  height: 20px;
+}
+
+.btn.dropdown-toggle{height:28px;}
+.fleet_block_three .btn-group{height:100%; }
+.fleet_block_three .btn-group .btn{height:100%; min-width:58px;}
+.fleet_block_three .btn-group .caret{}
+
+.fleet_block_three .btn-group > .btn:first-child {
+-webkit-border-bottom-left-radius: 0px;
+border-bottom-left-radius: 0px;
+-webkit-border-top-left-radius: 0px;
+border-top-left-radius: 0px;
+-moz-border-radius-bottomleft: 0px;
+-moz-border-radius-topleft: 0px;
+border-top:none;
+border-bottom:none;
+}
+
+.fleet_block_three .btn-group > .dropdown-toggle {
+-webkit-border-top-right-radius: 0px;
+border-top-right-radius: 0px;
+-webkit-border-bottom-right-radius: 0px;
+border-bottom-right-radius: 0px;
+-moz-border-radius-topright: 0px;
+-moz-border-radius-bottomright: 0px;
+border-top:none;
+border-bottom:none;
+border-right:none;
+min-width:0px;
+}
+
+.control-label{ font-size:14px;}
+
+.dropdown-menu li{font-size:12px; line-height:14px;}
+
+legend{font-size:17px; padding-left:30px; padding-top:4px;}
+form{ border: 1px solid #CCC; margin:20px;}
+
+#info_cont{text-align:center; color:#919191; font-size:11px;}

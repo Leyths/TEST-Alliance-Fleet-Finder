@@ -1,0 +1,34 @@
+<form class="form-horizontal">
+	<fieldset>
+    <legend>Looking for fleet</legend>
+    <div class="control-group">
+      	<label class="control-label" id="fleet_tp" for="fleet_type">Fleet Type</label>
+      	<div class="controls">
+        	<select style="width:350px;"  data-placeholder="Fleet Types" id="fleet_type" name="fleet_type" multiple="multiple">
+					{% for fleet in fleet_types %}
+          <option 
+            {% for f_t in u.fleet_types.all %}
+              {% if f_t = fleet %}
+                selected = "selected"
+              {% endif %}
+            {% endfor %}
+            value="{{fleet.name}}">{{fleet.name}}</option>
+          {% endfor %}
+			</select>
+        	<p class="help-block">Types of fleet you are able/interested in participating in</p>
+     	</div>
+    </div>
+    <div class="control-group">
+      	<label class="control-label" id="alert" for="alert">Alert</label>
+      	<div class="controls">
+        	<input {% if u.alert %}checked="checked"{% endif %} id="alert" type="checkbox" style="width:15px" name="alert"/>
+        	<p class="help-block">Play an audio alert when a fleet is created which matches your filters</p>
+     	</div>
+    </div>
+    <div class="control-group">
+    	<div class="controls">
+   			<div class="btn btn-success" id="submit_btn" style="margin-top:10px;" >Submit</div> <div class="btn btn-danger" id="cancel_btn" style="margin-top:10px;" >Cancel</div> 
+  		</div>
+  	</div>
+  	</fieldset>
+</form> 

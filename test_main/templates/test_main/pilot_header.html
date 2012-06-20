@@ -1,0 +1,23 @@
+<div class = "connection_status"> <span class="connection_status_text">Current Status: 
+		{% if u.current_fleet != None and u.current_fleet.fleet.fleet_commander == u and u.current_fleet.fleet.active %}
+			Commanding Fleet <span class="btn btn-success" id="update_fleet">Update Fleet</span><span class="btn btn-success" style="display:none" id="update">Update</span><span id="cancel_lff" style="display:none" class="btn btn-warning">Cancel</span><span id="leave_fleet" style="display:none" class="btn btn-danger">Leave Fleet</span><span id="disband_fleet" class="btn btn-danger">Disband Fleet</span>
+		{% else %}
+			{% if u.current_fleet != None and u.current_fleet.fleet.active %}
+				In Fleet </span> <span class="btn btn-success" style="display:none" id="update_fleet">Update Fleet</span><span class="btn btn-success" id="update">Update</span><span id="cancel_lff" style="display:none" class="btn btn-warning">Cancel</span><span id="leave_fleet" class="btn btn-danger">Leave Fleet</span><span style="display:none" id="disband_fleet" class="btn btn-danger">Disband Fleet</span>
+			{% else %}
+				{% if u.looking_for_fleet %}
+					Looking for fleet </span><span style="display:none"class="btn btn-success" id="update_fleet">Update Fleet</span><span class="btn btn-success" id="update">Update</span><span id="cancel_lff" class="btn btn-warning">Cancel</span><span id="leave_fleet" style="display:none" class="btn btn-danger">Leave Fleet</span><span style="display:none" id="disband_fleet" class="btn btn-danger">Disband Fleet</span>
+				{% else %} 
+					Not looking for fleet </span><span style="display:none" class="btn btn-success" id="update_fleet">Update Fleet</span><span class="btn btn-success" id="update">Update</span><span id="cancel_lff" style= "display:none" class="btn btn-warning">Cancel</span><span id="leave_fleet" style="display:none" class="btn btn-danger">Leave Fleet</span><span style="display:none" id="disband_fleet" class="btn btn-danger">Disband Fleet</span>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+
+</div>
+<span class="pilot_name"><span class="name">Pilot Name: {{u.name}}</span>
+	<span class="labels">
+	{%for tp in u.fleet_types.all%}
+		<span class="label">{{tp.name}}</span>
+	{% endfor %}
+	</span>
+</span>

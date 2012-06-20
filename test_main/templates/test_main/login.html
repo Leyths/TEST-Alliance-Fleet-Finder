@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="{{ STATIC_URL }}javascript/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
+		<title>TEST Fleet Finder</title>
+		<script type="text/javascript">
+
+		</script>
+	</head>
+	
+	<body>
+		{% include "test_main/header.html" %}    
+		
+		<div id="body" style="text-align:center" class="container">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-error">{{message}}</div>
+				{% endfor %}
+			{% endif %}
+			<form style="display:inline-block; padding-right:100px"class="form-horizontal" name="login" method="post" action="./login.html">
+				<fieldset>
+					<legend style="border:none">Sign in with Auth username/password</legend>
+					{% csrf_token %}
+					<div class="control-group">
+	  					<label class="control-label" id="username" for="username">Username</label>
+	  					<div class="controls"><input type="text" id="username" name="user"/></div>
+	  				</div>
+					<div class="control-group">
+	  					<label class="control-label" id="password" for="password">Password</label>
+	  					<div class="controls"> <input  type="password" id="password" name="pass"/></div>
+	  				</div>
+					<div class="control-group" style="text-align:left">
+						<div class="controls"><input type="submit" name="submit" class="btn btn-success" id="submit_btn" value="Send" /> </div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>

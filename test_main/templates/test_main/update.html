@@ -1,0 +1,73 @@
+<div>
+	<div id="fleet_t">
+			<div id="fleets_title">Current and future fleets:</div><span id="create_fleet" class ="btn btn-info create_fleet">Create Fleet</span>
+	</div>
+	<div id = "fleets">
+		
+		{% for fleet in fleets %}
+			<div class="fleet_cont" id="fleet_{{fleet.0.id}}">
+				<div class="fleet">
+					<div class="fleet_block_three">
+						<div class="btn-group">
+						  <button class="btn fleet_{{fleet.0.id}}"><i class="icon-user"></i><span class="label">{{fleet.1.count}}</span></button>
+						  <button class="btn dropdown-toggle fleet_{{fleet.0.id}}" data-toggle="dropdown">
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu">
+						     <li id="join_fleet" class="fleet_{{fleet.0.id}}"><a href="#">Join fleet</a></li>
+						  </ul>
+						</div>
+					</div>
+					<div class="fleet_block_one">
+						<span class="fleet_name">"{{ fleet.0.name }}"</span> <span class="commanded_by">commanded by</span> <span class="user_name">{{ fleet.0.fleet_commander.name }}</span>
+					</div>
+					<div class="fleet_block_two">
+						<span class="fleet_description">{{fleet.0.description}} </span>
+						<span class="fleet_leaving">Leaving <abbr class="timeago" title="{{fleet.0.leaving|date:"c"}}">{{fleet.0.leaving}}</abbr> from {{fleet.0.location.name}}
+							<span class="labels">
+							{% for fleet_type in fleet.0.fleet_type.all %}
+								<span class="label label-info">{{fleet_type.name}}</span>
+							{% endfor %}
+						</span></span>
+					</div>
+				</div>
+				<div style="display:none"class="fleet_members well fleet_{{fleet.0.id}}">
+					{% for member in fleet.1 %}
+						<div {% if forloop.counter0 == 0 %} style="border:none" {% endif %} class = "fleet_member">
+							{{member.name}}
+							{% for fleet_type in member.fleet_types.all %}
+								<span class="label label-info">{{fleet_type.name}}</span>
+							{% endfor %}
+						</div>
+					{% empty %}
+						No Members
+					{% endfor %}
+				</div>
+			</div>
+			{% empty %}
+			<div class="fleet_cont" id="fleet_-1">
+				<div class="fleet">
+					No Fleets
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div id="pilots">
+		<div id="pilots_title">
+			Pilots looking for fleets:
+		</div>
+		{% for pilot in lf_fleet %}
+			<div class="pilot">
+				<span class="user_name">{{ pilot.name }}</span>
+
+				{% for fleet_type in pilot.fleet_types.all %}
+					<span class="label label-info">{{fleet_type.name}}</span>
+				{% endfor %}
+			</div>
+		{% empty %}
+			<div class="pilot">
+				No pilots looking for fleets
+			</div>
+		{% endfor %}
+	</div>
+</div>

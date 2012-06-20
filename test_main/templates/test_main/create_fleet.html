@@ -1,0 +1,77 @@
+	{% if update %}
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#fleet_name").val("{{u.current_fleet.fleet.name}}")
+      $("#fleet_description").val("{{u.current_fleet.fleet.description}}")
+       $("#fleet_leaving").val("{{u.current_fleet.fleet.leaving|date:"Y-m-d H:i:s"}}")
+    })
+  </script>
+  {% endif %}
+
+  <form class="form-horizontal">
+	<fieldset>
+    <legend id="fleet_c_title_text"style="border:none">
+      {% if not update %}
+        Create new fleet
+      {% else %}
+        Update fleet
+      {% endif %}
+    </legend>
+    <div class="control-group">
+      	<label class="control-label" id="fleet_name_text" for="fleet_name">Fleet name</label>
+      	<div class="controls">
+      		<input maxlength="260" type="text" name="fleet_name" id="fleet_name"/>
+      		<p class="help-block">Please give the same name as the fleet name in-game.</p>
+      	</div>
+    </div>
+    <div class="control-group">
+      	<label class="control-label" id="fleet_description_text" for="fleet_description">Fleet description</label>
+      	<div class="controls">
+      		<input type="text" maxlength="500" name="fleet_description" id="fleet_description"/>
+      		<p class="help-block">(Optional) Write a short description to describe the aims of your fleet/any other useful information.</p>
+      	</div>
+    </div>
+    <div class="control-group">
+      	<label class="control-label" id="fleet_fleet_tp" for="fleet_fleet_type">Fleet type</label>
+      	<div class="controls">
+      		<select style="width:200px;"  data-placeholder="Fleet types" id="fleet_fleet_type" name="fleet_fleet_type" multiple="multiple">
+					{% for fleet in fleet_types %}
+            {% if update %}
+              <option 
+              {% for f_t in u.current_fleet.fleet.fleet_type.all %}
+                {% if f_t == fleet %}
+					         selected="selected"
+                {% endif %}
+              {% endfor %}
+               value="{{fleet.name}}">{{fleet.name}}</option>
+            {% else %}
+               <option value="{{fleet.name}}">{{fleet.name}}</option>
+            {% endif %}
+					{% endfor %}
+				</select>
+      		<p class="help-block">The makeup of your fleet; what ships you'd like people to bring</p>
+      	</div>
+    </div>
+    <div class="control-group">
+      	<label class="control-label" id="fleet_loc_text" for="fleet_loc">Fleet formup location</label>
+      	<div class="controls">
+           <select style="width:200px;"  data-placeholder="Type to search systems" id="fleet_loc" name="fleet_loc">
+            {% if update %}
+              <option value="{{u.current_fleet.fleet.location.name}}" selected="selected">{{u.current_fleet.fleet.location.name}}</option>
+            {% else %}
+              <option value""></option>
+            {% endif %}
+          </select>
+      	</div>
+    </div>
+    <div class="control-group">
+      	<label class="control-label" id="fleet_leaving_text" for="fleet_leaving">Fleet start time</label>
+      	<div class="controls">
+      		<input type="text" name="fleet_leaving" id="fleet_leaving"/>
+      		<p class="help-block"><input id="leaving_now" type="checkbox" style="width:15px; margin-left:2px; margin-right:2px;" name="leaving_now"/> Leaving now<br/>Time in EVE time (Icelandic)</p>
+      	</div>
+    </div>
+	<div class="control-group">
+      	<div class="controls">
+      		<div class="btn btn-success" id="submit_fleet_btn" style="margin-top:10px;"> {% if not update %}Create fleet{% else %} Update fleet {% endif %}</div> <div class="btn btn-danger" id="cancel_fleet_btn" style="margin-top:10px;" >Cancel</div> 
+      	</div>

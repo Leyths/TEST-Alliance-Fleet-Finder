@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="{{ STATIC_URL }}javascript/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui/jquery-ui-1.8.21.custom.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui/jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}javascript/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}javascript/main.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}chosen/chosen.jquery.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}javascript/ajax-chosen.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}javascript/jquery.timeago.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}chosen/chosen.css"/>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jquery-ui/jquery-ui-1.8.21.custom.css"/>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
+
+		<title>TEST Fleet Finder</title>
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			g_alert = {% if u.alert %}true{% else %}false{% endif %};
+			g_alert_types = [{%for tp in u.fleet_types.all%}
+								"{{tp.name}}",
+							{% endfor %}]
+		})
+		</script>
+	</head>
+	
+	<body>
+
+		<audio id="alert" preload="auto">
+		   <source src="{{ STATIC_URL }}audio/alert.ogg" />  
+		   <source src="{{ STATIC_URL }}audio/alert.mp3" />
+		</audio>
+
+		{% include "test_main/header.html" %}  
+		
+		<div class="container" style="width:965px;">
+			<div id="fleet_creation" class="container" style="display:none"></div>
+			<div id="body" class="container">
+				<div>
+					<div id = "pilot_box">
+						<div id="pilot_info">
+							{% include "test_main/pilot_header.html" %}  
+						</div>
+						<div id="fleet_status_dropdown" style="display:none"></div>
+					</div>
+					
+				</div>
+				
+				<div id="refreshed_content_here">
+					{{template}} 
+				</div>
+
+				<div id="info_cont">
+					{{info}}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

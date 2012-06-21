@@ -23,7 +23,7 @@ urlpatterns = patterns('',
 
     #url(r'^dummy.html', 'test_main.views.insert_dummy_data', name='dummy_data'),
     #url(r'^random_u.html', 'test_main.views.create_random_user', name='random_user'),
-    url(r'^random_f.html', 'test_main.views.create_random_fleet', name='random_fleet'),
+    #url(r'^random_f.html', 'test_main.views.create_random_fleet', name='random_fleet'),
     # url(r'^testproject/', include('testproject.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -18,7 +18,7 @@
 
 		<script type="text/javascript">
 		$(document).ready(function(){
-			g_alert = {% if u.alert %}true{% else %}false{% endif %};
+			g_alert = {% if u.alert and u.looking_for_fleet %}true{% else %}false{% endif %};
 			g_alert_types = [{%for tp in u.fleet_types.all%}
 								"{{tp.name}}",
 							{% endfor %}]
@@ -28,7 +28,7 @@
 	
 	<body>
 
-		<audio id="alert" preload="auto">
+		<audio id="alert_sound" preload="auto">
 		   <source src="{{ STATIC_URL }}audio/alert.ogg" />  
 		   <source src="{{ STATIC_URL }}audio/alert.mp3" />
 		</audio>

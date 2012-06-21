@@ -8,3 +8,5 @@ Install:
 2) Put the contents of /test\_main/static/ into your static files directory. 
 
 3) Install requirements in requirements.txt (pytz, Django, mysql-python)
+
+4) Add the line url(r'^', include("test_main.urls")) to your main application's urls.py file.

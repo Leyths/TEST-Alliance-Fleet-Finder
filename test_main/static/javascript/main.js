@@ -44,6 +44,7 @@ function setUpHandlers()
 					if(total>0)
 					{
 						g_alert = $("#alert").is(':checked');
+						console.log($("#alert").is(':checked'))
 						disableStatus(true)
 						working(true)
 						$.ajax({url:"./looking_for_fleet.html?"+queryString+"&alert="+g_alert, success:function(data) {
@@ -77,6 +78,7 @@ function setUpHandlers()
 					refreshContent();
 					console.log(data)
 					working(false)
+					g_alert = false;
 			}, error:function(){error(true)}})
     });
 
@@ -370,7 +372,6 @@ function working(working)
 
 function error(error)
 {
-	console.log("error")
 	hide = false;
 	if(error)
 	{
@@ -532,7 +533,7 @@ function updateFleetList(body)
 			//console.log("Adding new fleet id="+id)
 			fleet.prepend(content);
 
-			if(true)//g_alert)
+			if(g_alert)
 			{
 				var label = content.find(".labels .label")
 				outer:
@@ -557,7 +558,7 @@ function updateFleetList(body)
 function playAlert()
 {
 	console.log("Alert")
-	document.getElementById("alert").play()
+	document.getElementById("alert_sound").play()
 }
 
 function updatePilotList(body)
